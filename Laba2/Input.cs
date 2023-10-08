@@ -8,14 +8,15 @@ namespace Laba2
 {
     internal class Input
     {
+
         public double[,] Arr()
         {
-            Console.WriteLine("Введiть розмiр матрицi (і х j)");
+            Console.WriteLine("Введiть розмiр матрицi (i х j)");
             int[] size = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 
             double[,] array = new double[size[0], size[1]];
 
-            Console.WriteLine("Введіть елементи масиву:");
+            Console.WriteLine("Введiть елементи масиву:");
 
             for (int i = 0; i < size[0]; i++)
             {
@@ -30,18 +31,18 @@ namespace Laba2
 
         public double[][] Arr2() 
         {
-            Console.WriteLine("Введіть розмірність рядків:");
+            Console.WriteLine("Введiть розмiрнiсть рядкiв:");
             int rows = int.Parse(Console.ReadLine());
             double[][] jaggedArray = new double[rows][];
 
             for (int i = 0; i < rows; i++)
             {
-                Console.WriteLine($"Введіть кількість елементів у рядку {i + 1}:");
+                Console.WriteLine($"Введiть кiлькiсть елементiв у рядку {i + 1}:");
                 int columns = int.Parse(Console.ReadLine());
 
                 jaggedArray[i] = new double[columns];
 
-                Console.WriteLine($"Введіть елементи для рядку {i + 1} (через пробіл):");
+                Console.WriteLine($"Введiть елементи для рядку {i + 1} (через пробiл):");
                 string[] elements = Console.ReadLine().Split(' ');
 
                 for (int j = 0; j < columns; j++)
@@ -54,15 +55,15 @@ namespace Laba2
 
         public string[] Arr3()
         {
-            Console.WriteLine("Введіть кількість рядків у матриці:");
+            Console.WriteLine("Введiть кiлькiсть рядкiв у матрицi:");
             int rowCount = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Введіть кількість чисел у кожному рядку:");
+            Console.WriteLine("Введiть кiлькiсть чисел у кожному рядку:");
             int colCount = int.Parse(Console.ReadLine());
 
             string[] rows = new string[rowCount];
 
-            Console.WriteLine("Введіть числа для кожного рядка, розділені пробілами або табуляціями:");
+            Console.WriteLine("Введiть числа для кожного рядка, роздiленi пробiлами або табуляцiями:");
 
             for (int i = 0; i < rowCount; i++)
             {
@@ -74,8 +75,8 @@ namespace Laba2
 
         public string Arr4()
         {
-            Console.WriteLine("Введіть матрицю рядок за рядком, розділяючи елементи пробілами або табуляцією.");
-            Console.WriteLine("Введіть порожній рядок, щоб завершити введення.");
+            Console.WriteLine("Введiть матрицю рядок за рядком, роздiляючи елементи пробiлами або табуляцiєю.");
+            Console.WriteLine("Введiть порожнiй рядок, щоб завершити введення.");
             string input = "";
             while (true)
             {

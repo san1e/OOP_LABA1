@@ -12,7 +12,7 @@ namespace Laba2
         {
             if (matrix1.Height != matrix2.Height || matrix1.Width != matrix2.Width)
             {
-                throw new ArgumentException("Матриці повинні бути одного розміру");
+                throw new ArgumentException("Матрицi повиннi бути одного розмiру");
             }
 
             double[,] resultArray = new double[matrix1.Height, matrix1.Width];
@@ -31,7 +31,7 @@ namespace Laba2
         {
             if (matrix1.Width != matrix2.Height)
             {
-                throw new ArgumentException("Матриці повинні мати одну кількість стовпчиків");
+                throw new ArgumentException("Матрицi повиннi мати одну кiлькiсть стовпчикiв");
             }
             int resultRows = matrix1.Height;
             int resultCols = matrix2.Width;

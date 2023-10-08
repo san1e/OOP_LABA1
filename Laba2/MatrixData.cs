@@ -8,6 +8,7 @@ namespace Laba2
 {
     public class MatrixData
     {
+
         private double[,] matrix;
         public MatrixData(MatrixData other)
         {
@@ -34,12 +35,30 @@ namespace Laba2
                 }
             }
         }
+        static bool IsJaggedArrayRectangular(double[][] arr)
+        {
+            int rowLength = arr[0].Length;
 
+            foreach (var row in arr)
+            {
+                if (row.Length != rowLength)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         public MatrixData(double[][] arr)
-        {   
+        {
             int rows = arr.Length;
             int cols = arr[0].Length;
             matrix = new double[rows,cols];
+            if (IsJaggedArrayRectangular(arr) == false)
+            {
+                Console.WriteLine("Масив фактично не прямокутний");
+                Environment.Exit(1);
+            }
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < cols; j++)
@@ -59,7 +78,16 @@ namespace Laba2
                 string[] elements = rows[i].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < width; j++)
                 {
-                    matrix[i, j] = double.Parse(elements[j]);
+                    if (double.TryParse(elements[j], out double value))
+                    {
+                        matrix[i, j] = value;
+                    }
+                    else
+                    {
+                        // Обробка помилки, якщо в елементi рядка символи
+                        Console.WriteLine("Введенi не числа, а символи");
+                        Environment.Exit(1);
+                    }
                 }
             }
         }
@@ -75,11 +103,19 @@ namespace Laba2
                 string[] elements = rows[i].Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
                 for (int j = 0; j < width; j++)
                 {
-                    matrix[i, j] = double.Parse(elements[j]);
+                    if (double.TryParse(elements[j], out double value))
+                    {
+                        matrix[i, j] = value;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Введенi не числа, а символи");
+                        Environment.Exit(1);
+                    }
                 }
             }
         }
-        // Властивості для отримання "висоти" та "ширини" матриці
+        // Властивостi для отримання "висоти" та "ширини" матрицi
         public int Height
         {
             get { return matrix.GetLength(0); }
@@ -89,13 +125,13 @@ namespace Laba2
         {
             get { return matrix.GetLength(1); }
         }
-        // Індексатори для доступу до елементів матриці
+        // iндексатори для доступу до елементiв матрицi
         public double this[int i, int j]
         {
             get { return matrix[i, j]; }
             set { matrix[i, j] = value; }
         }
-        // Перевизначений метод ToString для зручного виводу матриці
+        // Перевизначений метод ToString для зручного виводу матрицi
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -106,10 +142,10 @@ namespace Laba2
                     sb.Append(matrix[i, j]);
                     if (j < Width - 1)
                     {
-                        sb.Append("\t"); // Використовуємо табуляцію для розділення чисел в рядку
+                        sb.Append("\t"); // Використовуємо табуляцiю для роздiлення чисел в рядку
                     }
                 }
-                sb.AppendLine(); // Додаємо символ переведення рядка між рядками матриці
+                sb.AppendLine(); // Додаємо символ переведення рядка мiж рядками матрицi
             }
             return sb.ToString();
         }
