@@ -10,20 +10,20 @@ namespace task2
     {
         public long Nom()
         {
-            Console.Write("Введіть значення чисельника: ");
+            Console.Write("Введiть значення чисельника: ");
             long nom = long.Parse(Console.ReadLine());
             return nom;
         }
         public long Denom()
         {
-            Console.Write("Введіть значення знаменника: ");
+            Console.Write("Введiть значення знаменника: ");
             long denom = long.Parse(Console.ReadLine());
             return denom;
         }
 
         public int N() 
         {
-            Console.Write("Введіть значення N: ");
+            Console.Write("Введiть значення N: ");
             int n = int.Parse(Console.ReadLine());
             return n;
         }

@@ -12,6 +12,7 @@ namespace Laba2
         private double[,] matrix;
         public MatrixData(MatrixData other)
         {
+
             matrix = new double[other.Height, other.Width];
             for (int i = 0; i < other.Height; i++)
             {
@@ -26,6 +27,11 @@ namespace Laba2
         {
             int cols = arr.GetLength(1);
             int rows = arr.GetLength(0);
+            if (cols == 0 && rows == 0)
+            {
+                Console.WriteLine("Матриця пуста");
+                Environment.Exit(1);
+            }
             matrix = new double[rows, cols];
             for (int i = 0; i < rows; i++)
             {
